@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  man:
+    build: .
+    container_name: man
+    image: movative/ansible
+  version:
+    container_name: version
+    image: movative/ansible
+    command: ["--version"]
+  hosts:
+    container_name: hosts
+    image: movative/ansible
+    command: ["all", "--list-hosts"]
+    volumes:
+      - ${PWD}/example:/home/ansible 
+      
+
