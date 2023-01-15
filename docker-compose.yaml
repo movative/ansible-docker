@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.9'
 services:
   man:
     build: .
@@ -7,12 +7,11 @@ services:
   version:
     container_name: version
     image: movative/ansible
-    command: ["--version"]
+    command: [ "--version" ]
   hosts:
     container_name: hosts
     image: movative/ansible
-    command: ["all", "--list-hosts"]
+    command: [ "all", "--list-hosts" ]
     volumes:
-      - ${PWD}/example:/home/ansible 
-      
-
+      - ${PWD}/example:/home/ansible
+      - ~/.ssh:/root/.ssh:ro
